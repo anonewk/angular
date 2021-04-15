@@ -1,3 +1,4 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -8,7 +9,11 @@ import { TestComponent } from './test/test.component';
 
 import { RouterModule, Routes } from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+
 
 const routes: Routes = [
   { path: 'test', component: TestComponent}
@@ -23,7 +28,14 @@ const routes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
 
+    ReactiveFormsModule,
+    FormsModule,
+
     MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+
+    MatIconModule,
 
     RouterModule.forRoot(routes)
   ],

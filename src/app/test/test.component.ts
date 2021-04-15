@@ -7,15 +7,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
-  chaineDeCaractere: string = 'chaine de caractères';
-  nombre: number = 10;
-  booleen: boolean = true;
+  nouvelElement: string;
 
-  tableau = [];
+  tableau = [
+    {
+      id: 1,
+      label: 'Test label 1',
+    },
+    {
+      id: 2,
+      label: 'Test label 2',
+    }
+  ];
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  valider() {
+    this.tableau.push({
+      id: this.tableau.length + 1,
+      label: this.nouvelElement,
+    });
+
+    this.nouvelElement = '';
+  }
+
+  supprimer(id: number) {
+    this.tableau = this.tableau.filter(x => x.id !== id);
+  }
 }
