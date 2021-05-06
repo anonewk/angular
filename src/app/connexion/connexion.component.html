@@ -1,18 +1,26 @@
 <div class="padding">
   <mat-card>
     <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>Connexion</mat-card-title>
     </mat-card-header>
-    <mat-card-content>
+    <mat-card-content class="mt-2">
       <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email">
+          <mat-icon matSuffix>mail</mat-icon>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Mot de passe</mat-label>
+          <input matInput placeholder="Mot de passe">
+          <mat-icon matSuffix>lock</mat-icon>
+        </mat-form-field>
       </p>
     </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>Connexion</button>
+    <mat-card-actions align="end">
+      <button mat-raised-button color="primary">Connexion</button>
     </mat-card-actions>
   </mat-card>
 </div>
