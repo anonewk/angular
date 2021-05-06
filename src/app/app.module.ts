@@ -2,11 +2,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { TestComponent } from './test/test.component';
-
 import { RouterModule, Routes } from '@angular/router';
 
 import { MatButtonModule } from '@angular/material/button';
@@ -21,20 +17,26 @@ import { environment } from 'src/environments/environment';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+
+import { AppComponent } from './app.component';
 import { ConnexionComponent } from './connexion/connexion.component';
-
-
+import { TestComponent } from './test/test.component';
+import { BaseComponent } from './base/base.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 const routes: Routes = [
   { path: 'test', component: TestComponent },
-  { path: 'connexion', component: ConnexionComponent }
+  { path: 'connexion', component: ConnexionComponent },
+  { path: 'inscription', component: InscriptionComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    BaseComponent,
+    InscriptionComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,8 @@ const routes: Routes = [
 
     RouterModule.forRoot(routes),
 
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule
   ],
   providers: [],
   exports: [RouterModule],
