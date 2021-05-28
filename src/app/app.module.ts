@@ -13,6 +13,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
+
 
 import { environment } from 'src/environments/environment';
 
@@ -45,6 +47,7 @@ const routes: Routes = [
     ElevesComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
 
@@ -58,6 +61,7 @@ const routes: Routes = [
     MatSnackBarModule,
     MatCardModule,
     MatDividerModule,
+    MatTableModule,
 
     RouterModule.forRoot(routes),
 

@@ -15,7 +15,14 @@ export class ElevesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.eleves = this.firestore.collection('eleves').valueChanges();
+    this.eleves = this.firestore.collection('eleves').valueChanges({ idField: 'id' });
   }
 
+  supprimer(eleve: any) {
+    console.log(eleve);
+    this.firestore.collection('eleves').doc(eleve.id).delete()
+      .then(() => {
+        console.log('Ligne supprimée !');
+      });
+  }
 }
