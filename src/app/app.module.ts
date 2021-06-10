@@ -12,22 +12,30 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import { environment } from 'src/environments/environment';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { AppComponent } from './app.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { TestComponent } from './test/test.component';
 import { BaseComponent } from './base/base.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { ElevesComponent } from './eleves/eleves.component';
+import { FormulaireComponent } from './eleves/formulaire/formulaire.component';
 
 const routes: Routes = [
   { path: 'test', component: TestComponent },
   { path: 'connexion', component: ConnexionComponent },
-  { path: 'inscription', component: InscriptionComponent }
+  { path: 'inscription', component: InscriptionComponent },
+
+  { path: 'eleves', component: ElevesComponent }
 ];
 
 @NgModule({
@@ -36,7 +44,9 @@ const routes: Routes = [
     TestComponent,
     ConnexionComponent,
     BaseComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    ElevesComponent,
+    FormulaireComponent
   ],
   imports: [
     BrowserModule,
@@ -52,11 +62,14 @@ const routes: Routes = [
     MatSnackBarModule,
     MatCardModule,
     MatDividerModule,
+    MatTableModule,
+    MatDialogModule,
 
     RouterModule.forRoot(routes),
 
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   providers: [],
   exports: [RouterModule],
