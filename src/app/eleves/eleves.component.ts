@@ -37,6 +37,10 @@ export class ElevesComponent extends BaseComponent implements OnInit {
     this.dialog.open(FormulaireComponent, { width: '600px' });
   }
 
+  modifier(eleve) {
+    this.dialog.open(FormulaireComponent, { width: '600px', data: eleve });
+  }
+
   supprimer(eleve: Eleve) {
     this.firestore.collection('eleves').doc(eleve.id).delete().then(
       () => {

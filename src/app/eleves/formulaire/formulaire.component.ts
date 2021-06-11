@@ -1,8 +1,9 @@
 import { BaseComponent } from './../../base/base.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   templateUrl: './formulaire.component.html',
@@ -16,8 +17,10 @@ export class FormulaireComponent extends BaseComponent implements OnInit {
     dateNaissance: new FormControl()
   });
 
-  constructor(private _snackbar: MatSnackBar, private firestore: AngularFirestore) {
+  constructor(private _snackbar: MatSnackBar, private firestore: AngularFirestore, @Inject(MAT_DIALOG_DATA) public data: any) {
     super(_snackbar);
+
+    console.log(data);
   }
 
   ngOnInit(): void {
