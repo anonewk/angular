@@ -12,7 +12,6 @@ export interface Eleve {
   nom: string;
   prenom: string;
 }
-
 @Component({
   selector: 'app-eleves',
   templateUrl: './eleves.component.html',
@@ -28,6 +27,7 @@ export class ElevesComponent extends BaseComponent implements OnInit {
   ) {
     super(snackBar);
   }
+
 
   ngOnInit(): void {
     this.eleves = this.firestore.collection('eleves').valueChanges({ idField: 'id' });
