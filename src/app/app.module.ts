@@ -1,3 +1,4 @@
+import { ServiceWorkerModule } from '@angular/service-worker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,7 +15,6 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import { environment } from 'src/environments/environment';
 
@@ -24,14 +24,12 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { AppComponent } from './app.component';
 import { ConnexionComponent } from './connexion/connexion.component';
-import { TestComponent } from './test/test.component';
 import { BaseComponent } from './base/base.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ElevesComponent } from './eleves/eleves.component';
 import { FormulaireComponent } from './eleves/formulaire/formulaire.component';
 
 const routes: Routes = [
-  { path: 'test', component: TestComponent },
   { path: 'connexion', component: ConnexionComponent },
   { path: 'inscription', component: InscriptionComponent },
 
@@ -41,7 +39,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent,
     ConnexionComponent,
     BaseComponent,
     InscriptionComponent,
@@ -69,7 +66,13 @@ const routes: Routes = [
 
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   exports: [RouterModule],
