@@ -26,15 +26,16 @@ import { AppComponent } from './app.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { BaseComponent } from './base/base.component';
 import { InscriptionComponent } from './inscription/inscription.component';
-import { ElevesComponent } from './eleves/eleves.component';
-import { FormulaireComponent } from './eleves/formulaire/formulaire.component';
+import { TechnosComponent} from './technos/technos.component';
+import { FormulaireComponent} from './technos/formulaire/formulaire.component';
 import { CommonModule } from '@angular/common';
+import {NgbRatingModule} from "@ng-bootstrap/ng-bootstrap";
 
 const routes: Routes = [
+  { path: '', component: ConnexionComponent },
   { path: 'connexion', component: ConnexionComponent },
   { path: 'inscription', component: InscriptionComponent },
-
-  { path: 'eleves', component: ElevesComponent }
+  { path: 'technos', component: TechnosComponent }
 ];
 
 @NgModule({
@@ -43,8 +44,8 @@ const routes: Routes = [
     ConnexionComponent,
     BaseComponent,
     InscriptionComponent,
-    ElevesComponent,
-    FormulaireComponent
+    TechnosComponent,
+    FormulaireComponent,
 
   ],
   imports: [
@@ -76,7 +77,8 @@ const routes: Routes = [
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    NgbRatingModule
   ],
   providers: [],
   exports: [RouterModule],

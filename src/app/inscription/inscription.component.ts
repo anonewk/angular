@@ -4,6 +4,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from 'src/environments/environment';
 import { BaseComponent } from '../base/base.component';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-inscription',
@@ -19,7 +20,9 @@ export class InscriptionComponent extends BaseComponent implements OnInit {
 
   constructor(
     private authentication: AngularFireAuth,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    private router: Router
+
   ) {
     super(snackBar);
   }
@@ -31,6 +34,7 @@ export class InscriptionComponent extends BaseComponent implements OnInit {
     this.authentication.createUserWithEmailAndPassword(this.formulaire.get('email').value, this.formulaire.get('motDePasse').value).then(
       (response) => {
         this.afficherSnackbar('Utilisateur enregistré avec succès !');
+        this.router.navigate(['/connexion']);
       },
       (error) => {
         this.afficherSnackbar(environment.firebaseMessage[error.code]);

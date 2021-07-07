@@ -1,14 +1,14 @@
 {
   "targets": {
-    "classeiw": {
+    "eval-pwa-firebase": {
       "hosting": {
         "pwa": [
-          "classeiw"
+          "eval-pwa-firebase"
         ]
       }
     }
   },
   "projects": {
-    "default": "classeiw"
+    "default": "eval-pwa-firebase"
   }
 }

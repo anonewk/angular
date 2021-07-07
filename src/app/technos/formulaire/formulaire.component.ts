@@ -1,4 +1,4 @@
-import { BaseComponent } from './../../base/base.component';
+import { BaseComponent } from '../../base/base.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Component, Inject, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -13,8 +13,8 @@ export class FormulaireComponent extends BaseComponent implements OnInit {
 
   formulaire = new FormGroup({
     nom: new FormControl(),
-    prenom: new FormControl(),
-    dateNaissance: new FormControl()
+    description: new FormControl(),
+    note: new FormControl()
   });
 
   constructor(private _snackbar: MatSnackBar, private firestore: AngularFirestore, @Inject(MAT_DIALOG_DATA) public data: any) {
@@ -28,15 +28,15 @@ export class FormulaireComponent extends BaseComponent implements OnInit {
 
   valider() {
     console.log(this.formulaire.value);
-    this.firestore.collection('eleves').add({
+    this.firestore.collection('technos').add({
       nom: this.formulaire.get('nom').value,
-      prenom: this.formulaire.get('prenom').value,
-      dateNaissance: new Date(this.formulaire.get('dateNaissance').value),
+      description: this.formulaire.get('description').value,
+      note: this.formulaire.get('note').value,
     }).then(
       () => {
-        this.afficherSnackbar('Eleve enregistré !!!');
+        this.afficherSnackbar('technos enregistré !!!');
       }
-    )
+    );
   }
 
 }

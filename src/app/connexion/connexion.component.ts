@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { BaseComponent } from '../base/base.component';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-connexion',
@@ -19,7 +20,8 @@ export class ConnexionComponent extends BaseComponent implements OnInit {
 
   constructor(
     private authentication: AngularFireAuth,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    private router: Router
   ) {
     super(snackBar);
   }
@@ -37,9 +39,12 @@ export class ConnexionComponent extends BaseComponent implements OnInit {
         (response) => {
           console.log(response);
           this.afficherSnackbar('Utilisateur authentifié !');
+          this.router.navigate(['/technos']);
         },
         (error) => {
           this.afficherSnackbar(environment.firebaseMessage[error.code]);
+          console.log( "false");
+
         }
       );
   }

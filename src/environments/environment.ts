@@ -6,15 +6,15 @@ export const environment = {
   production: false,
 
   firebaseConfig: {
-    apiKey: "AIzaSyD6auG2sTGF88QVwgjNqNQzWXhCLLqJ5zU",
-    authDomain: "classeiw.firebaseapp.com",
-    projectId: "classeiw",
-    storageBucket: "classeiw.appspot.com",
-    messagingSenderId: "1093970021840",
-    appId: "1:1093970021840:web:66ca9620f407e968e6bdd5"
+    apiKey: 'AIzaSyAwZ5MMAgsj4IdNZ2yyR3qdp4aKbJJ3RNs',
+    authDomain: 'eval-pwa-firebase.firebaseapp.com',
+    projectId: 'eval-pwa-firebase',
+    storageBucket: 'eval-pwa-firebase.appspot.com',
+    messagingSenderId: '958711631977',
+    appId: '1:958711631977:web:868ca55570aa06241112f8'
   },
 
-  firebaseMessage:{
+  firebaseMessage: {
     'auth/user-not-found': `Identifiants incorrect`,
     'auth/invalid-email': `Le champ email n'est pas correctement formatté`,
     'auth/wrong-password': `Mot de passe incorrect`,
