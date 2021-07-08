@@ -5,6 +5,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { FormulaireComponent } from './formulaire/formulaire.component';
+import {FormControl, FormGroup} from '@angular/forms';
 
 export interface Technos {
   id: string;
@@ -19,7 +20,12 @@ export interface Technos {
 })
 export class TechnosComponent extends BaseComponent implements OnInit {
   technos: Observable<any>;
-  //starRating = this.technos.note;
+  formulaire = new FormGroup({
+    name: new FormControl(),
+    description: new FormControl(),
+    note: new FormControl()
+  });
+
   constructor(
     public snackBar: MatSnackBar,
     public dialog: MatDialog,
@@ -31,6 +37,7 @@ export class TechnosComponent extends BaseComponent implements OnInit {
 
   ngOnInit(): void {
     this.technos = this.firestore.collection('technos').valueChanges({ idField: 'id' });
+
   }
 
   ajouter() {
@@ -39,11 +46,6 @@ export class TechnosComponent extends BaseComponent implements OnInit {
 
   modifier(technos) {
     this.dialog.open(FormulaireComponent, { width: '600px', data: technos });
-    this.firestore.collection('technos').doc(technos.id).update(technos).then(
-      () => {
-        this.afficherSnackbar('technos modifié !!!');
-      }
-    );
   }
   supprimer(technos: Technos) {
     this.firestore.collection('technos').doc(technos.id).delete().then(
