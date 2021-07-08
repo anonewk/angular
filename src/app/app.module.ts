@@ -29,7 +29,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { TechnosComponent} from './technos/technos.component';
 import { FormulaireComponent} from './technos/formulaire/formulaire.component';
 import { CommonModule } from '@angular/common';
-import {NgbRatingModule} from "@ng-bootstrap/ng-bootstrap";
+import {NgbRatingModule} from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
   { path: '', component: ConnexionComponent },
